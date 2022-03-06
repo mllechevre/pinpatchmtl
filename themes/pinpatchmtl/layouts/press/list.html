@@ -1,0 +1,39 @@
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+{{ partial "mobilemenu" . }}
+
+    <!-- Press page content -->
+
+    <section class="content big-padding-top">
+      <div class="wrap big-padding-top big-padding-bottom">
+        <div class="">
+          <h1 class="blue medium-padding-bottom">
+            <span>{{ .Params.title }}</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="content big-padding-bottom">
+      <div class="press-articles medium-padding-bottom">
+        <div class="wrap">
+          <div id="press-container" class="flex-row flex-wrap">
+            {{ range $.Site.Data.press.articles }}
+              {{ partial "pressarticle.html" . }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content big-padding-bottom">
+      <div class="press-kit big-padding-bottom">
+        <div class="wrap">
+          <a class="button bigger" href="https://drive.google.com/drive/folders/115zCAZv-7cWTbR7-A2UWM4twfR22vWHK?usp=sharing" target="blank">{{ .Params.cta }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- end Press page content -->
+
+{{ partial "footer" . }}

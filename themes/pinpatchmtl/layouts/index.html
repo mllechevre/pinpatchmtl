@@ -1,0 +1,197 @@
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+{{ partial "mobilemenu" . }}
+<!-- Main -->
+
+{{ if .Site.Params.showbuypincta }}
+  {{ partial "pincta" . }}
+{{ end }}
+{{ if .Site.Params.showinscriptionscta }}
+  {{ partial "applicationscta" . }}
+{{ end }}
+{{ partial "logoheader" . }}
+
+<section class="top-info medium-padding-bottom medium-padding-top">
+  <div class="wrap">
+    <div class="flex-row">
+      <div class="flex-1">
+        <h1
+          class="blue medium-margin-bottom">
+          {{ .Params.title }}
+        </h1>
+        <h3 class="no-margin blue">
+          {{ .Params.description }}
+        </h3>
+      </div>
+      {{ if .Site.Params.eventMode }}
+      <div class="flex-1 big-padding-left">
+        <h3 class="date-main">
+          {{ .Params.moment }}
+        </h3>
+        <h4 >
+          {{ .Params.time }}
+        </h4>
+        <div class="medium-margin-bottom flex-row place">
+          <div class="flex-1 place-logo">
+            <img src="/img/logo_2.jpg" />
+          </div>
+          <div class="medium-padding-left flex-4">
+            <h4>{{ .Params.placeName }}</h4>
+            {{ .Params.place }}
+          </div>
+      </div>
+      <p class="entry">
+        <i class="fa fa-ticket"></i>{{ .Params.entry }}
+      </p>
+      <div class="buttons">
+        <a
+          class="button hidden"
+          href="https://www.facebook.com/events/596660647518312/"
+          target="_blank"
+          data-translatable>{{ .Params.facebookEvent }}</a>
+        <span class="addtocalendar atc-style-blue">
+          <var class="atc_event">
+            <var class="atc_date_start">2020-05-09 11:00:00</var>
+            <var class="atc_date_end">2020-05-09 18:00:00</var>
+            <var class="atc_timezone">America/Toronto</var>
+            <var class="atc_title">Pin Patch Mtl Fair Spring 2020 edition</var>
+            <var class="atc_description">Montreal’s unique enamel pin and patch creators fair -> http://pinpatchmtl.com</var>
+            <var class="atc_location">Ausgang Plaza, 6524 Rue Saint-Hubert, Montreal, Qc, Canada</var>
+            <var class="atc_organizer">Manière Noire</var>
+            <var class="atc_organizer_email">reach@manierenoireshop.com</var>
+          </var>
+        </span>
+        </div>
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap big-padding-bottom">
+    <div class="top-sponsors flex-row">
+      <div class="item flex-1">
+        <p data-translatable>{{ .Params.organizedBy }}</p>
+        <a href="https://manierenoireshop.com/" target="_blank"><img src="{{"./img/maniere-noire.png" | relURL}}"/></a>
+      </div>
+      <div class="item hidden flex-1">
+        <p data-translatable>{{ .Params.sponsoredBy }}</p>
+        <a href="https://annexvintage.com/" target="_blank"><img src="{{"./img/annex.svg" | relURL}}"/></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ if .Site.Params.showArtists }}
+<section class="home-artists big-padding-bottom">
+  <div class="wrap">
+    <h2 class="blue text-center">{{ .Params.artistsTitle }}</h2>
+    <div class="flex-row">
+      {{ range .Site.Home.AllTranslations }}
+        {{ $artists := where .Pages "Type" "artists" }}
+        {{ range $index, $page := $artists }}
+          {{ if (and (in .Params.years "2019") (le $index 6)) }}
+            {{ partial "artist_card_page.html" . }}
+          {{ end}}
+        {{ end }}
+      {{end}}
+    </div>
+    <div class="text-center">
+      <a class="button" href="/artists/?year=2019">{{ .Params.artistsCta }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<div class="big-padding-bottom display-none">
+  <div class="wrap flex-row">
+    <div class="flex-1 bar-top concours">
+      <h2 class="blue bold" data-translatable>
+        <span>Contest!</span><span>Concours!</span>
+      </h2>
+      <h3 data-translatable class="no-margin blue">
+        <span>Get a chance to win a jean jacket covered in pins and patches
+          designed by the artists present.</span><span
+          >Courrez la chance de gagner une veste en jeans couverte de pins et
+          patches créées par les artistes présents</span>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<div class="display-none">{{ partial "featured_artists" . }}</div>
+<div class="wrap big-padding-bottom text-center display-none">
+  <a class="button bigger" href="/artists" data-translatable>See all artists // Voir tous les artistes</a>
+</div>
+<div class="wrap big-padding-bottom text-center display-none">
+  <img src="./img/illustrator-banner-site.jpg" />
+  <a class="button bigger" href="/apply-illustrators" data-translatable>Apply to illustrate the next edition // Appliquez pour illustrer la
+    prochaine edition</a>
+</div>
+
+<section class="content big-padding-top big-padding-bottom">
+  <div class="big-wrap">
+    <div class="event-photos flex-row">
+      <div class="flex-1 photo tilt-left">
+        <img src="/img/PinPatchMtl_03carolineperronphotographies.jpg" />
+      </div>
+      <div class="flex-1 photo tilt-right">
+        <img src="/img/PinPatchMtl_113carolineperronphotographies.jpg" />
+      </div>
+      <div class="flex-1 photo tilt-left">
+        <img src="/img/PinPatchMtl_156carolineperronphotographies.jpg" />
+      </div>
+    </div>
+    <div class="photo-credit">
+      {{ .Params.photosBy }} <a href="https://www.instagram.com/caroline.perron.photographies/">Caroline Perron</a>
+    </div>
+  </div>
+</section>
+
+<section class="content big-padding-top big-padding-bottom">
+  <div class="wrap">
+
+    <div class="mission blue">
+      {{ .Params.mission }}
+    </div>
+
+    <h1 class='blue medium-padding-bottom'>{{ .Params.whatTitle }}</h1>
+    <div class="flex-row">
+      <div class="flex-1 small-padding-right">
+        <h2>
+          {{ .Params.pinsSubtitle }}
+        </h2>
+        <p>
+        {{ .Params.pinsText }}
+        </p>
+      </div>
+      <div class="flex-1 small-padding-left">
+        <h2>
+          {{ .Params.patchSubtitle }}
+        </h2>
+        <p>
+        {{ .Params.patchText }}
+        </p>
+      </div>
+    </div>
+    <p class="medium-padding-top">
+      {{ .Params.whatText }}
+    </p>
+  </div>
+</section>
+
+<section class="content big-padding-top big-padding-bottom">
+  <div class="big-wrap">
+    <div class="event-photos flex-row">
+      <div class="flex-1 photo tilt-left"><img src="/img/PinPatchMtl_188carolineperronphotographies.jpg" /></div>
+      <div class="flex-1 photo tilt-right"><img src="/img/PinPatchMtl_136carolineperronphotographies.jpg" /></div>
+      <div class="flex-1 photo tilt-left"><img src="/img/PinPatchMtl_117carolineperronphotographies.jpg" /></div>
+    </div>
+  </div>
+</section>
+
+{{ partial "newsletter" . }}
+{{ partial "instafeed" . }}
+{{ partial "footer" . }}

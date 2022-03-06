@@ -1,0 +1,12 @@
+<div class="event flex-1">
+  <div class="img card light-grey-back" style="background-image: url('{{ .Params.promo_img }}')"></div>
+  <div class="infos">
+    <h2 class="blue">{{ .Params.title }}</h2>
+    <h3 class="blue" data-translatable>{{ dateFormat "2 Jan 2006" .Params.event_date }}</h3>
+    <hr />
+    <p>{{ .Params.description }}</p>
+    <p>
+      <a class="button" href="{{ .Params.artists_link }}">See artists of this edition</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+    <footer class="footer">
+      <div class="wrap">
+        <div class="logo"><img src="{{ "img/logo.svg" | relURL }}"/></div>
+        <div class="footer-menu">
+          {{ range .Site.Menus.footer }}
+            <a class="menu-item" href="{{ .URL }}" data-translatable>
+              {{ .Name }}
+            </a>
+          {{ end }}
+        </div>
+        <div class="small-things">
+          <img class='desktop' src="{{ "img/bottomsite.png" | relURL }}"/>
+          <img class='mobile' src="{{ "img/bottomsite_m.png" | relURL }}"/>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

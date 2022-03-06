@@ -1,0 +1,19 @@
+<nav class="main-nav menu desktop">
+  <div class="big-wrap">
+    <div class="menu-left">
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+        <a class="menu-item" href="{{ .URL | absLangURL }}">
+          {{ .Name }}
+        </a>
+      {{ end }}
+    </div>
+    <div class="social">
+      <a href="{{ .Site.Params.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="{{ .Site.Params.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+    </div>
+    <div class="lang-selector">
+      <a href="/" data-lang="en">EN</a>/<a href="/fr/" data-lang="fr">FR</a>
+    </div>
+  </div>
+</nav>

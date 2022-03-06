@@ -1,0 +1,21 @@
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+{{ partial "mobilemenu" . }}
+
+    <!-- Shop page content -->
+
+    <section class="content shop medium-grey-back big-padding-top">
+      <div class="big-wrap big-padding-top big-padding-bottom">
+        <div class="">
+          <h1 class="white medium-padding-bottom">
+            {{ .Params.title }}
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    {{ partial "products" . }}
+
+    <!-- end Shop page content -->
+
+{{ partial "footer" . }}

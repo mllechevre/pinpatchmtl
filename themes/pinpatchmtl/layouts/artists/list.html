@@ -1,0 +1,33 @@
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+{{ partial "mobilemenu" . }}
+
+    <!-- Artists page content -->
+
+    <section class="content big-padding-top">
+      <div class="big-wrap big-padding-top big-padding-bottom">
+        <div class="">
+          <h1 class="blue medium-padding-bottom">
+            <span>{{ .Params.title }}</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    {{ partial "artist_filters" . }}
+
+    <section class="content big-padding-bottom medium-padding-top">
+      <div class='big-wrap artists'>
+        <div class="flex-row flex-wrap artist-container">
+          {{ range .AllTranslations }}
+            {{ range where .RegularPages "Type" "artists" }}
+              {{ partial "artist_card_page.html" . }}
+            {{ end }}
+          {{end}}
+        </div>
+      </div>
+    </section>
+
+    <!-- end Artists page content -->
+
+{{ partial "footer" . }}

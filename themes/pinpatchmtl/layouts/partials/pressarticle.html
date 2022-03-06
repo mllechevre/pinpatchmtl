@@ -1,0 +1,12 @@
+<div class="press-article flex-1">
+  {{ with .articleurl }}
+    <a class="article-title" href="{{ . }}" target="_blank">
+  {{ end }}
+  <h3>{{ .title }}</h3>
+  {{ with .articleurl }}
+    </a>
+  {{ end }}
+  {{ with .articlesource }}
+    <p data-translatable>{{ . }}</p>
+  {{ end }}
+</div>
