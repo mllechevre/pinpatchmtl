@@ -15,7 +15,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
 
 jobs:
   deploy:
@@ -31,6 +31,6 @@ jobs:
           name: Deploy to S3
           working_directory: ~/pinpatchmtl/
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
                 aws s3 sync public s3://ppinpatchmtl.com/ --delete
             fi
